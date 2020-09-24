@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
-import 'app/material_app.dart';
+import 'package:mytoptracks/app/app_module.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(ModularApp(module: AppModule()));
