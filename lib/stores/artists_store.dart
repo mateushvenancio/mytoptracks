@@ -9,7 +9,7 @@ part 'artists_store.g.dart';
 class ArtistsStore = _ArtistsStoreBase with _$ArtistsStore;
 
 abstract class _ArtistsStoreBase with Store {
-  final authStore = Modular.get<AuthStore>();
+  // final authStore = Modular.get<AuthStore>();
 
   @observable
   List<Artist> short = [];
@@ -19,9 +19,8 @@ abstract class _ArtistsStoreBase with Store {
   List<Artist> long = [];
 
   @action
-  getArtists() async {
-    print('chegou aqui nos artists store');
-    String token = authStore.token;
+  getArtists(String token) async {
+    // String token = authStore.token;
 
     short = await fetchArtists(token, 'short_term');
     medium = await fetchArtists(token, 'medium_term');

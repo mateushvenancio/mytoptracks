@@ -9,7 +9,7 @@ part 'tracks_store.g.dart';
 class TracksStore = _TracksStoreBase with _$TracksStore;
 
 abstract class _TracksStoreBase with Store {
-  final authStore = Modular.get<AuthStore>();
+  // final authStore = Modular.get<AuthStore>();
 
   @observable
   List<Track> short = [];
@@ -19,8 +19,8 @@ abstract class _TracksStoreBase with Store {
   List<Track> long = [];
 
   @action
-  getTracks() async {
-    String token = authStore.token;
+  getTracks(String token) async {
+    // String token = authStore.token;
 
     short = await fetchTracks(token, 'short_term');
     medium = await fetchTracks(token, 'medium_term');

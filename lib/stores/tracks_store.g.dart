@@ -57,8 +57,8 @@ mixin _$TracksStore on _TracksStoreBase, Store {
   final _$getTracksAsyncAction = AsyncAction('_TracksStoreBase.getTracks');
 
   @override
-  Future getTracks() {
-    return _$getTracksAsyncAction.run(() => super.getTracks());
+  Future getTracks(String token) {
+    return _$getTracksAsyncAction.run(() => super.getTracks(token));
   }
 
   final _$fetchTracksAsyncAction = AsyncAction('_TracksStoreBase.fetchTracks');

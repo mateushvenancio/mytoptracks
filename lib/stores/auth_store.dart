@@ -1,9 +1,12 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:http/http.dart' as http;
 import 'package:mobx/mobx.dart';
 import 'package:mytoptracks/repository/api_keys.dart';
+import 'package:mytoptracks/stores/artists_store.dart';
+import 'package:mytoptracks/stores/tracks_store.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:uni_links/uni_links.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -12,15 +15,17 @@ part 'auth_store.g.dart';
 class AuthStore = _AuthStoreBase with _$AuthStore;
 
 abstract class _AuthStoreBase with Store {
+  final artistsStore = Modular.get<ArtistsStore>();
+  final tracksStore = Modular.get<TracksStore>();
   StreamSubscription _sub;
   String token;
 
   _AuthStoreBase() {
-    print('instanciou o auth store');
-    _sub = getUriLinksStream().listen((event) {
+    _sub = getUriLinksStream().listen((event) async {
       String code = event.queryParameters['code'];
-      print('Código recuperado do Stream: $code');
-      getToken(code);
+      await getToken(code);
+      await artistsStore.getArtists(token);
+      await tracksStore.getTracks(token);
     });
   }
 

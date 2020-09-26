@@ -21,7 +21,9 @@ class _HomePageState extends ModularState<HomePage, HomeController>
   void initState() {
     pageController = PageController(initialPage: 0);
     tabController = TabController(vsync: this, length: 2);
-    // controller.store.getArtists();
+
+    print('Instanciou Home Page');
+
     super.initState();
   }
 
@@ -30,15 +32,6 @@ class _HomePageState extends ModularState<HomePage, HomeController>
     return Scaffold(
       appBar: AppBar(
         title: Text('My Top Tracks'),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.refresh),
-            onPressed: () async {
-              await controller.artistsStore.getArtists();
-              await controller.tracksStore.getTracks();
-            },
-          ),
-        ],
         bottom: TabBar(
           controller: tabController,
           tabs: [

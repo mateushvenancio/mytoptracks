@@ -57,8 +57,8 @@ mixin _$ArtistsStore on _ArtistsStoreBase, Store {
   final _$getArtistsAsyncAction = AsyncAction('_ArtistsStoreBase.getArtists');
 
   @override
-  Future getArtists() {
-    return _$getArtistsAsyncAction.run(() => super.getArtists());
+  Future getArtists(String token) {
+    return _$getArtistsAsyncAction.run(() => super.getArtists(token));
   }
 
   final _$fetchArtistsAsyncAction =

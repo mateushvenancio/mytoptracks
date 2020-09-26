@@ -11,12 +11,4 @@ class HomeController = _HomeControllerBase with _$HomeController;
 abstract class _HomeControllerBase with Store {
   final artistsStore = Modular.get<ArtistsStore>();
   final tracksStore = Modular.get<TracksStore>();
-
-  @observable
-  int value = 0;
-
-  @action
-  void increment() {
-    value++;
-  }
 }
