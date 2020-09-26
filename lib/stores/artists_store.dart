@@ -49,29 +49,4 @@ abstract class _ArtistsStoreBase with Store {
 
     return artists;
   }
-
-  // @action
-  // Future<String> getToken(String code) async {
-  //   final String credentials = '${ApiKeys.clientID}:${ApiKeys.clientSecret}';
-  //   final String encodedCredentials = utf8.fuse(base64).encode(credentials);
-
-  //   var response =
-  //       await http.post('https://accounts.spotify.com/api/token', body: {
-  //     'grant_type': 'authorization_code',
-  //     'code': '$code',
-  //     'redirect_uri': '${ApiKeys.redirectTo}'
-  //   }, headers: {
-  //     HttpHeaders.authorizationHeader: 'Basic $encodedCredentials'
-  //   });
-
-  //   Map _map = json.decode(response.body);
-
-  //   return _map['access_token'];
-  // }
-
-  // @action
-  // saveCode(String code) async {
-  //   SharedPreferences prefs = await SharedPreferences.getInstance();
-  //   await prefs.setString('code', code);
-  // }
 }

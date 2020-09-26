@@ -16,8 +16,14 @@ class ArtistsTile extends StatelessWidget {
               : 'https://www.bauducco.com.br/wp-content/uploads/2017/09/default-placeholder-1-2.png',
         ),
       ),
-      title: Text(model.name ?? ''),
-      subtitle: Text(model.genres.length > 0 ? model.genres[0] : ''),
+      title: Text(
+        model.name ?? '',
+        style: TextStyle(color: Colors.white),
+      ),
+      subtitle: Text(
+        model.genres.length > 0 ? model.genres[0] : '',
+        style: TextStyle(color: Colors.white),
+      ),
     );
   }
 }

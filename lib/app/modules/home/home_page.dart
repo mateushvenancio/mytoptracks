@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mytoptracks/app/modules/home/components/artists_tile.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:mytoptracks/app/modules/home/components/tracks_tile.dart';
 import 'home_controller.dart';
 
 class HomePage extends StatefulWidget {
@@ -33,8 +33,9 @@ class _HomePageState extends ModularState<HomePage, HomeController>
         actions: [
           IconButton(
             icon: Icon(Icons.refresh),
-            onPressed: () {
-              controller.store.getArtists();
+            onPressed: () async {
+              await controller.artistsStore.getArtists();
+              await controller.tracksStore.getTracks();
             },
           ),
         ],
@@ -53,22 +54,39 @@ class _HomePageState extends ModularState<HomePage, HomeController>
           children: [
             [
               ListView(
-                children: controller.store.short.map((e) {
+                children: controller.artistsStore.short.map((e) {
                   return ArtistsTile(e);
                 }).toList(),
               ),
               ListView(
-                children: controller.store.medium.map((e) {
+                children: controller.artistsStore.medium.map((e) {
                   return ArtistsTile(e);
                 }).toList(),
               ),
               ListView(
-                children: controller.store.long.map((e) {
+                children: controller.artistsStore.long.map((e) {
                   return ArtistsTile(e);
                 }).toList(),
               ),
             ][_index],
-            Container(color: Colors.blue),
+            [
+              ListView(
+                children: controller.tracksStore.short.map((e) {
+                  return TracksTile(e);
+                }).toList(),
+              ),
+              ListView(
+                children: controller.tracksStore.medium.map((e) {
+                  return TracksTile(e);
+                }).toList(),
+              ),
+              ListView(
+                children: controller.tracksStore.long.map((e) {
+                  return TracksTile(e);
+                }).toList(),
+              ),
+            ][_index],
+            // Container(color: Colors.blue),
           ],
         );
       }),
@@ -93,6 +111,7 @@ class _HomePageState extends ModularState<HomePage, HomeController>
             icon: Icon(Icons.calendar_today),
           ),
         ],
+        unselectedItemColor: Colors.white,
       ),
     );
   }

@@ -5,11 +5,13 @@ import 'package:mytoptracks/app/modules/home/home_module.dart';
 import 'package:mytoptracks/app/modules/login/login_module.dart';
 import 'package:mytoptracks/stores/artists_store.dart';
 import 'package:mytoptracks/stores/auth_store.dart';
+import 'package:mytoptracks/stores/tracks_store.dart';
 
 class AppModule extends MainModule {
   @override
   List<Bind> get binds => [
         Bind((i) => ArtistsStore()),
+        Bind((i) => TracksStore()),
         Bind((i) => AuthStore(), lazy: false),
       ];
 

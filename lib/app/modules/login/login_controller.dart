@@ -1,6 +1,5 @@
 import 'package:mobx/mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:mytoptracks/stores/artists_store.dart';
 import 'package:mytoptracks/stores/auth_store.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
