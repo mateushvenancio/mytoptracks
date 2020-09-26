@@ -3,16 +3,6 @@
 part of 'artists_store.dart';
 
 // **************************************************************************
-// InjectionGenerator
-// **************************************************************************
-
-final $ArtistsStore = BindInject(
-  (i) => ArtistsStore(),
-  singleton: true,
-  lazy: true,
-);
-
-// **************************************************************************
 // StoreGenerator
 // **************************************************************************
 
@@ -71,18 +61,12 @@ mixin _$ArtistsStore on _ArtistsStoreBase, Store {
     return _$getArtistsAsyncAction.run(() => super.getArtists());
   }
 
-  final _$getTokenAsyncAction = AsyncAction('_ArtistsStoreBase.getToken');
+  final _$fetchArtistsAsyncAction =
+      AsyncAction('_ArtistsStoreBase.fetchArtists');
 
   @override
-  Future getToken(String code) {
-    return _$getTokenAsyncAction.run(() => super.getToken(code));
-  }
-
-  final _$saveCodeAsyncAction = AsyncAction('_ArtistsStoreBase.saveCode');
-
-  @override
-  Future saveCode(String code) {
-    return _$saveCodeAsyncAction.run(() => super.saveCode(code));
+  Future<List<Artist>> fetchArtists(String token, String term) {
+    return _$fetchArtistsAsyncAction.run(() => super.fetchArtists(token, term));
   }
 
   @override

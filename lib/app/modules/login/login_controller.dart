@@ -1,6 +1,8 @@
 import 'package:mobx/mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mytoptracks/stores/artists_store.dart';
+import 'package:mytoptracks/stores/auth_store.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 part 'login_controller.g.dart';
 
@@ -8,10 +10,28 @@ part 'login_controller.g.dart';
 class LoginController = _LoginControllerBase with _$LoginController;
 
 abstract class _LoginControllerBase with Store {
-  final store = Modular.get<ArtistsStore>();
+  final authStore = Modular.get<AuthStore>();
+
+  @observable
+  bool isLoading = false;
 
   @action
-  void setCode(String code) {
-    store.saveCode(code);
+  getCode() async {
+    isLoading = true;
+
+    await authStore.getCode();
+    Modular.to.pushReplacementNamed('/home');
+
+    isLoading = false;
+  }
+
+  @action
+  initialCheck() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    if (prefs.containsKey('code')) {
+      Modular.to.pushReplacementNamed('/home');
+    } else {
+      isLoading = false;
+    }
   }
 }
