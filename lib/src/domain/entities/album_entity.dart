@@ -1,13 +1,6 @@
 class AlbumEntity {
-  final String id;
-  final String name;
-  final List<String> images;
-  final String uri;
-
-  AlbumEntity({
-    required this.id,
-    required this.images,
-    required this.name,
-    required this.uri,
-  });
+  late final String id;
+  late final String name;
+  late final List<String> images;
+  late final String uri;
 }

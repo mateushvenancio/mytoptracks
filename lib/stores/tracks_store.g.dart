@@ -12,13 +12,13 @@ mixin _$TracksStore on _TracksStoreBase, Store {
   final _$shortAtom = Atom(name: '_TracksStoreBase.short');
 
   @override
-  List<Track> get short {
+  List<dynamic> get short {
     _$shortAtom.reportRead();
     return super.short;
   }
 
   @override
-  set short(List<Track> value) {
+  set short(List<dynamic> value) {
     _$shortAtom.reportWrite(value, super.short, () {
       super.short = value;
     });
@@ -27,13 +27,13 @@ mixin _$TracksStore on _TracksStoreBase, Store {
   final _$mediumAtom = Atom(name: '_TracksStoreBase.medium');
 
   @override
-  List<Track> get medium {
+  List<dynamic> get medium {
     _$mediumAtom.reportRead();
     return super.medium;
   }
 
   @override
-  set medium(List<Track> value) {
+  set medium(List<dynamic> value) {
     _$mediumAtom.reportWrite(value, super.medium, () {
       super.medium = value;
     });
@@ -42,13 +42,13 @@ mixin _$TracksStore on _TracksStoreBase, Store {
   final _$longAtom = Atom(name: '_TracksStoreBase.long');
 
   @override
-  List<Track> get long {
+  List<dynamic> get long {
     _$longAtom.reportRead();
     return super.long;
   }
 
   @override
-  set long(List<Track> value) {
+  set long(List<dynamic> value) {
     _$longAtom.reportWrite(value, super.long, () {
       super.long = value;
     });
@@ -64,7 +64,7 @@ mixin _$TracksStore on _TracksStoreBase, Store {
   final _$fetchTracksAsyncAction = AsyncAction('_TracksStoreBase.fetchTracks');
 
   @override
-  Future<List<Track>> fetchTracks(String token, String term) {
+  Future<List<dynamic>> fetchTracks(String token, String term) {
     return _$fetchTracksAsyncAction.run(() => super.fetchTracks(token, term));
   }
 

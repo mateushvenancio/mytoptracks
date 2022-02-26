@@ -12,13 +12,13 @@ mixin _$ArtistsStore on _ArtistsStoreBase, Store {
   final _$shortAtom = Atom(name: '_ArtistsStoreBase.short');
 
   @override
-  List<Artist> get short {
+  List<dynamic> get short {
     _$shortAtom.reportRead();
     return super.short;
   }
 
   @override
-  set short(List<Artist> value) {
+  set short(List<dynamic> value) {
     _$shortAtom.reportWrite(value, super.short, () {
       super.short = value;
     });
@@ -27,13 +27,13 @@ mixin _$ArtistsStore on _ArtistsStoreBase, Store {
   final _$mediumAtom = Atom(name: '_ArtistsStoreBase.medium');
 
   @override
-  List<Artist> get medium {
+  List<dynamic> get medium {
     _$mediumAtom.reportRead();
     return super.medium;
   }
 
   @override
-  set medium(List<Artist> value) {
+  set medium(List<dynamic> value) {
     _$mediumAtom.reportWrite(value, super.medium, () {
       super.medium = value;
     });
@@ -42,13 +42,13 @@ mixin _$ArtistsStore on _ArtistsStoreBase, Store {
   final _$longAtom = Atom(name: '_ArtistsStoreBase.long');
 
   @override
-  List<Artist> get long {
+  List<dynamic> get long {
     _$longAtom.reportRead();
     return super.long;
   }
 
   @override
-  set long(List<Artist> value) {
+  set long(List<dynamic> value) {
     _$longAtom.reportWrite(value, super.long, () {
       super.long = value;
     });
@@ -65,7 +65,7 @@ mixin _$ArtistsStore on _ArtistsStoreBase, Store {
       AsyncAction('_ArtistsStoreBase.fetchArtists');
 
   @override
-  Future<List<Artist>> fetchArtists(String token, String term) {
+  Future<List<dynamic>> fetchArtists(String token, String term) {
     return _$fetchArtistsAsyncAction.run(() => super.fetchArtists(token, term));
   }
 

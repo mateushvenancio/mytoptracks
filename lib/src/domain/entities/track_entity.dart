@@ -2,21 +2,12 @@ import 'package:mytoptracks/src/domain/entities/album_entity.dart';
 import 'package:mytoptracks/src/domain/entities/artist_entity.dart';
 
 class TrackEntity {
-  final String id;
-  final String name;
-  final String previewUrl;
-  final String uri;
-  final List<ArtistEntity> artists;
-  final List<AlbumEntity> albums;
-
-  TrackEntity({
-    required this.id,
-    required this.name,
-    required this.previewUrl,
-    required this.uri,
-    required this.artists,
-    required this.albums,
-  });
+  late final String id;
+  late final String name;
+  late final String previewUrl;
+  late final String uri;
+  late final List<ArtistEntity> artists;
+  late final List<AlbumEntity> albums;
 }
 
 /**
