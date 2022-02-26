@@ -1,9 +1,7 @@
 import 'dart:convert';
-import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
 import 'package:mytoptracks/models/artist.dart';
 import 'package:http/http.dart' as http;
-import 'package:mytoptracks/stores/auth_store.dart';
 part 'artists_store.g.dart';
 
 class ArtistsStore = _ArtistsStoreBase with _$ArtistsStore;

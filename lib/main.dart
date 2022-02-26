@@ -1,5 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:mytoptracks/app/app_module.dart';
-import 'package:flutter_modular/flutter_modular.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-void main() => runApp(ModularApp(module: AppModule()));
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'My Top Tracks',
+      theme: ThemeData(
+        primarySwatch: Colors.green,
+        brightness: Brightness.dark,
+        textTheme: GoogleFonts.signikaTextTheme(),
+      ),
+      initialRoute: '/',
+      onGenerateRoute: (_) {},
+    );
+  }
+}
