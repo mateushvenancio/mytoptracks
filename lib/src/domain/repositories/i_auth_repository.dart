@@ -1,5 +1,6 @@
 abstract class IAuthRepository {
-  Future<String> getToken();
+  Future<String> getToken(String code);
   Future<String> refreshToken();
-  Future<String> getCode();
+  Future<void> launchCode();
+  Stream<String> listenCode();
 }
