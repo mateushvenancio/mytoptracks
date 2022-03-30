@@ -14,7 +14,7 @@ class ApiRemoteDatasource implements IRemoteDataSource {
   set token(String value) => _token = value;
 
   @override
-  Future<Object?> get(String url) async {
+  Future<Object?> get(String url, {Map<String, dynamic>? headers}) async {
     if (_token == null) {}
     return await dio.get(url);
   }

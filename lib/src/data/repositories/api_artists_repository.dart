@@ -10,8 +10,14 @@ class ApiArtistsRepository implements IArtistsRepository {
   ApiArtistsRepository(this.api);
 
   @override
-  Future<List<ArtistEntity>> getArtists(Terms term) async {
-    final result = await api.get('/artists?limit=20&time_range=${term.label()}');
+  Future<List<ArtistEntity>> getArtists(Terms term, String token) async {
+    final result = await api.get(
+      '/artists?limit=20&time_range=${term.label()}',
+      headers: {'Authorization': token},
+    );
+
+    print('Result get artists: $result');
+
     return <ArtistModel>[];
   }
 }
